@@ -1,0 +1,14 @@
+
+# Foundations of DS -- Capstone Project
+
+_Description_
+
+My project is still in development, but will be from one of the following two ideas:
+
+__Film Seasonality__
+
+It is common practice in the film industry to avoid releasing films during certain windows in the year (the months of August and September, March, etc.).  These rules of thumb are based on stories about consumers’ preferences, not on hard data.  Recently, some films have ‘broken’ the rules and succeeded.  For example, Deadpool was released in March (typically avoided because of Spring Break) but was a huge success.  I’d like to examine if historical box office patterns justify the seasonality studios impose on movies, namely, does box office performance in those months suffer because people don’t want to see movies at that time of year or because studios don’t release films.  Is the problem the supply of films or the demand from consumers?
+
+__Hit Film Modeling__
+
+Movie studios spend an extraordinary amount of money to raise awareness of a film prior to release, but we have very few tools to understand what a hit movie looks like before we decide to start spending the money.  Is there a way we could understand the ‘shape’ of interest in a film, using something like wikipedia page views?  How do consumers react to the teaser trailer of a hit movie?  How does that reaction differ from movies that bomb?  Can we use that information to better plan marketing strategy?
