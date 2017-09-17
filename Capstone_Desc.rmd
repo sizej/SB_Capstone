@@ -1,7 +1,7 @@
 
 # Foundations of DS -- Capstone Project
 
-_Description_
+__Description__
 
 My project is still in development, but will be from one of the following two ideas:
 
@@ -12,3 +12,7 @@ It is common practice in the film industry to avoid releasing films during certa
 __Hit Film Modeling__
 
 Movie studios spend an extraordinary amount of money to raise awareness of a film prior to release, but we have very few tools to understand what a hit movie looks like before we decide to start spending the money.  Is there a way we could understand the ‘shape’ of interest in a film, using something like wikipedia page views?  How do consumers react to the teaser trailer of a hit movie?  How does that reaction differ from movies that bomb?  Can we use that information to better plan marketing strategy?
+
+__Note to David__
+
+I made this because it's part of the assignment for the second chapter.  I will update this as we hone in on one idea.
