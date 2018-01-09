@@ -30,3 +30,12 @@ movies_original$Infl_Adj_Dom_BO <- ifelse(is.na(movies_original$Infl_Adj_Dom_BO)
 # 1. Remove movies without any Total_BO
 # 2. Remove movies with future release date (only about 15 of these)
 # 3. Remove any movie without opening rev or theaters (if important for analysis)
+
+# Upload BLS datasets, Surv_resp = respondent level data, BLS_summary = summary information about the responses,
+# and Cur_Pop = current population information about the respondents
+Surv_resp <- atusact_0316 <- read_csv("~/Desktop/atusact_0316/atusact_0316.dat", 
+                                      col_types = cols(TUCASEID = col_character()))
+BLS_summary <- atussum_0316 <- read_csv("~/Desktop/atussum_0316/atussum_0316.dat", 
+                                        col_types = cols(TUCASEID = col_character()))
+Cur_pop <- atuscps_0316 <- read_csv("~/Desktop/atuscps_0316/atuscps_0316.dat", 
+                                    col_types = cols(TUCASEID = col_character()))
