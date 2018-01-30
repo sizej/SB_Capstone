@@ -8,15 +8,18 @@ annual_summary <- movies_original %>%
   gather(key = "measure", value = "value", total_index, count_index, budg_index)
 
 # monthly summary of percent of films, box office, and budget
-ggplot(annual_summary, aes(x = factor(month), y = value, shape = measure, colour = measure)) + geom_point(size = 6)
+ggplot(annual_summary, aes(x = factor(HRMONTH), y = value, shape = measure, colour = measure)) + geom_point(size = 6)
 
 # same data but with lines instead of scatter
-ggplot(annual_summary, aes(x = factor(month), y = value, group = measure, colour = measure)) + geom_smooth(method = "loess", se = FALSE)
+ggplot(annual_summary, aes(x = factor(HRMONTH), y = value, group = measure, colour = measure)) + geom_smooth(method = "loess", se = FALSE)
+
+ggplot(annual_summary, aes(x = factor(HRMONTH), y = value, group = measure, colour = measure)) + geom_line()
+
 
 # what would be considered a commercial success = 4 times the budget (just a guess)
 movies_scs_base <- movies_original %>%  
   mutate("perf_ratio" = Total_BO / Prod_budget) %>% 
-  mutate("Is_comm_success" = ifelse(perf_ratio >= 4, 1, 0)) 
+  mutate("Is_comm_success" = ifelse(perf_ratio >= 4, 1, 0), "Rel_month" = month(Rel_date_TH))
 
 movies_scs <- movies_original %>%  
   mutate("perf_ratio" = Total_BO / Prod_budget) %>% 
@@ -29,7 +32,7 @@ movies_scs <- movies_original %>%
 ggplot(movies_scs, aes(x = factor(month), y = count, group = Is_comm_success, fill = factor(Is_comm_success))) + geom_bar(position = "dodge", stat = "identity")
 
 # data set for success rate by month
-movies_scs_test <- movies_original %>%  
+movies_scs <- movies_original %>%  
   mutate("perf_ratio" = Total_BO / Prod_budget) %>% 
   mutate("Is_comm_success" = ifelse(perf_ratio >= 4, "CS", "Not_CS")) %>% 
   select(Rel_date_TH, Is_comm_success) %>% 
@@ -41,5 +44,8 @@ movies_scs_test <- movies_original %>%
 # plot success rate by month
 ggplot(movies_scs_test, aes(x = factor(month), y = success_rate)) + geom_bar(stat = "identity")
 
+#monthly perf_ratio by genre
+ggplot(movies_scs_base2, aes(x = Rel_month, y = perf_ratio, colour = Genre, group = Genre)) + geom_smooth(method = "loess", se = FALSE) + ylim(c(0,20))
 
 
+ggplot(movies_scs_base2, aes(x = Rel_month, y = perf_ratio, colour = Genre, shape = Genre)) + geom_point(size = 2, alpha = 0.6) + ylim(c(0,20))
